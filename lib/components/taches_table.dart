@@ -15,8 +15,8 @@ class TacheTable extends StatelessWidget {
           return DataTable(
             columns: [
               DataColumn(label: Text('ID')),
-              DataColumn(label: Text('Action ID')),
-              DataColumn(label: Text('Agent ID')),
+              DataColumn(label: Text('Motif')),
+              DataColumn(label: Text('Agent')),
               DataColumn(label: Text('Date')),
             ],
             rows: dataController.taches

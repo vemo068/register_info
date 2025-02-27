@@ -10,7 +10,7 @@ class SelectActionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select Action'),
+        title: const Text('Select Motif'),
         elevation: 0,
       ),
       body:GetBuilder(
