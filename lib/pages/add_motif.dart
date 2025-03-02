@@ -29,6 +29,7 @@ class AddMotif extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 TxtFldPC(
+                  autofocus: true,
                   hint: "Motif name",
                   controller: dataController.motifNameController,
                 ),

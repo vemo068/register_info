@@ -14,11 +14,12 @@ class MotifsPage extends StatelessWidget {
         title: const Text('Motifs'),
         elevation: 0,
       ),
-      floatingActionButton: FloatingActionButton.large(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Get.to(() => AddMotif());
         },
-        child: Icon(Icons.add),
+        label: Text('Add Motif'),
+        icon: Icon(Icons.add),
       ),
       body: GetBuilder(
           init: dataController,

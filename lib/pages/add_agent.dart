@@ -30,6 +30,7 @@ class AddAgent extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 TxtFldPC(
+                  autofocus: true,
                   hint: "Agent name",
                   controller: dataController.agentNameController,
                 ),

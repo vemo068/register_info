@@ -8,33 +8,32 @@ import 'package:register_info/controllers/data_controller.dart';
 import 'package:register_info/controllers/tabs_controller.dart';
 
 class HomePage extends StatelessWidget {
-  
   final TabsController tabsController = Get.find<TabsController>();
- 
+
   HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-   
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('Register Info'),
         elevation: 0,
+        backgroundColor: Colors.grey[200],
       ),
       body: GetBuilder(
-        init: tabsController,
-        builder: (_) {
-          return Row(
-            children: [
-              Expanded(flex: 1, child: AppDrawer()),
-              Expanded(
-                flex: 3,
-                child: tabsController.selectedTab,
-              ),
-            ],
-          );
-        }
-      ),
+          init: tabsController,
+          builder: (_) {
+            return Row(
+              children: [
+                Expanded(flex: 1, child: AppDrawer()),
+                Expanded(
+                  flex: 3,
+                  child: tabsController.selectedTab,
+                ),
+              ],
+            );
+          }),
     );
   }
 }

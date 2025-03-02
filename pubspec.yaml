@@ -38,6 +38,7 @@ dependencies:
   get: ^4.3.8
   sqflite_common_ffi: 
   path_provider:
+  
 
 dev_dependencies:
   flutter_test:

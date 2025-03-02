@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:register_info/controllers/data_controller.dart';
 import 'package:register_info/pages/add_agent.dart';
 
@@ -11,15 +12,15 @@ class AgentsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agents Page'),
+        title: const Text('Agents'),
         elevation: 0,
-        
       ),
-      floatingActionButton: FloatingActionButton.large(onPressed: (){
-        Get.to(()=>AddAgent());
-      },
-      child: Icon(Icons.add),
-
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Get.to(() => AddAgent());
+        },
+        label:Text('Add Agent'),
+        icon: Icon(Icons.add),
       ),
       body: GetBuilder(
           init: dataController,

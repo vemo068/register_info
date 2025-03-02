@@ -15,11 +15,11 @@ class TachesPage extends StatelessWidget {
         title: const Text('Taches'),
         elevation: 0,
       ),
-       floatingActionButton: FloatingActionButton.large(onPressed: (){
+       floatingActionButton: FloatingActionButton.extended(onPressed: (){
         Get.to(()=>AddTachePage());
       },
-      child: Icon(Icons.add),
-      
+      label:Text('Add Tache'),
+        icon: Icon(Icons.add),
       ),
       body:  Center(
         child: Column(
