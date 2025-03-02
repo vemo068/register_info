@@ -6,7 +6,7 @@ import 'package:register_info/pages/add_tache.dart';
 
 class TachesPage extends StatelessWidget {
   final DataController dataController = Get.find<DataController>();
-   TachesPage({super.key});
+  TachesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +15,14 @@ class TachesPage extends StatelessWidget {
         title: const Text('Taches'),
         elevation: 0,
       ),
-       floatingActionButton: FloatingActionButton.extended(onPressed: (){
-        Get.to(()=>AddTachePage());
-      },
-      label:Text('Add Tache'),
-        icon: Icon(Icons.add),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Get.to(() => AddTachePage());
+        },
+        label: Text('Add Tadche'),
+        icon: Icon(Icons.padding_rounded),
       ),
-      body:  Center(
+      body: Center(
         child: Column(
           children: [
             TacheTable(),
