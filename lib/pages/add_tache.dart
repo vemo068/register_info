@@ -40,6 +40,13 @@ class AddTachePage extends StatelessWidget {
                   child: Text(
                       dataController.selectedAgent?.name ?? "Select Agent"),
                 ),
+                ElevatedButton.icon(
+                    onPressed: () {
+                      dataController.insertTache();
+                      Get.back();
+                    },
+                    label: Text('Add Tache'),
+                    icon: Icon(Icons.save)),
               ],
             );
           }),

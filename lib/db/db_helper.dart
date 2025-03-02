@@ -7,7 +7,7 @@ import 'package:register_info/models/tache.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class DatabaseHelper {
-  final String databaseName = "invtcnasbase.db";
+  final String databaseName = "register_info.db";
 
   // Database connection initialization
   Future<Database> init() async {
@@ -124,14 +124,13 @@ class DatabaseHelper {
     );
   }
 
-
-
   //get agent by id
   Future<Agent> getAgentById(int id) async {
     final db = await init();
     final maps = await db.query('agents', where: 'id = ?', whereArgs: [id]);
     return Agent.fromJson(maps.first);
   }
+
   // get action by id
   Future<Actione> getActionById(int id) async {
     final db = await init();

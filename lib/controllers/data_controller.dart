@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:register_info/db/db_helper.dart';
 import 'package:register_info/models/action.dart';
@@ -5,8 +6,7 @@ import 'package:register_info/models/agent.dart';
 import 'package:register_info/models/tache.dart';
 
 class DataController extends GetxController {
-
-    final DatabaseHelper _dbHelper = DatabaseHelper();
+  final DatabaseHelper _dbHelper = DatabaseHelper();
 
   List<Actione> actions = [];
   List<Agent> agents = [];
@@ -14,6 +14,9 @@ class DataController extends GetxController {
   Agent? selectedAgent;
   Tache? selectedTache;
   Actione? selectedAction;
+
+  TextEditingController agentNameController = TextEditingController();
+  TextEditingController motifNameController = TextEditingController();
 
 //override oninit
   @override
@@ -40,18 +43,43 @@ class DataController extends GetxController {
     update();
   }
 
-  void insertAgent(Agent agent) async {
-    await _dbHelper.insertAgent(agent);
+  void insertAgent() async {
+    await _dbHelper.insertAgent(Agent(name: agentNameController.text));
+    agentNameController.clear();
     fetchAgents();
   }
 
-  void insertTache(Tache tache) async {
-    await _dbHelper.insertTache(tache);
+  void insertTache() async {
+    await _dbHelper.insertTache(Tache(
+      action_id: selectedAction!.id!,
+      agent_id: selectedAgent!.id!,
+      date: DateTime.now(),
+    ));
+    selectedAction = null;
+    selectedAgent = null;
     fetchTaches();
   }
 
-  void updateAgent(Agent agent) async {
-    await _dbHelper.updateAgent(agent);
+  void updateAction() async {
+    await _dbHelper.updateAction(Actione(name: motifNameController.text));
+    motifNameController.clear();
+    fetchActions();
+  }
+
+  void deleteAction(int id) async {
+    await _dbHelper.deleteAction(id);
+    fetchActions();
+  }
+
+  void insertAction() async {
+    await _dbHelper.insertAction(Actione(name: motifNameController.text));
+    motifNameController.clear();
+    fetchActions();
+  }
+
+  void updateAgent() async {
+    await _dbHelper.updateAgent(Agent(name: agentNameController.text));
+    agentNameController.clear();
     fetchAgents();
   }
 
@@ -69,11 +97,11 @@ class DataController extends GetxController {
     await _dbHelper.deleteTache(id);
     fetchTaches();
   }
-  
+
   String getActionNameByID(int id) {
     return actions.firstWhere((action) => action.id == id).name;
   }
-  
+
   String getAgentNameByID(int id) {
     return agents.firstWhere((agent) => agent.id == id).name;
   }
